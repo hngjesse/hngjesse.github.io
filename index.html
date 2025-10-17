@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hng Jesse | Physicist & Developer</title>
+    <style>
+        body {
+            background-color: #0d1117;  /* GitHub dark mode background */
+            color: #c9d1d9;             /* GitHub text color */
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            line-height: 1.6;
+        }
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        header, footer {
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #30363d;
+            margin: 20px 0;
+        }
+        p {
+        text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <h1>Hng Jesse</h1>
+        <nav>Physicist • Developer • Creator of Modbus Loggers</nav>
+        <nav>
+            <a href="https://www.linkedin.com/in/hngys/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            <a href="https://github.com/hngjesse" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="https://hngjesse.github.io/Modbus_loggers/" target="_blank" rel="noopener noreferrer">Current Project</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I’m a <strong>quantum physicist</strong> with a deep interest in data-driven systems
+                and automation tools. I completed my MPhil at the 
+                <a href="https://www.nottingham.edu.my/" target="_blank" rel="noopener noreferrer">University of Nottingham Malaysia</a>, 
+                where my research focused on two-qubit entanglement dynamics in 
+                <a href="https://en.wikipedia.org/wiki/Open_quantum_system" target="_blank" rel="noopener noreferrer">open quantum system</a>
+                 <a href="#ref1">[1]</a>. 
+                Currently, I’m working on bifacial solar energy projects, developing robust and reliable data logging 
+                systems based on Linux. My primary focus is on the 
+                <a href="https://en.wikipedia.org/wiki/Modbus" target="_blank" rel="noopener noreferrer">Modbus communication protocol</a>,
+                which plays a crucial role in modern <strong>solar technologies</strong>.
+            </p>
+            <p>
+                In the short term, my goal is to create a self-contained data logging framework that runs 
+                seamlessly on any <strong>Linux distribution</strong> using either Modbus 
+                <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="noopener noreferrer">TCP</a>
+                or Modbus <a href="https://en.wikipedia.org/wiki/Remote_terminal_unit" target="_blank" rel="noopener noreferrer">RTU</a>. 
+                The idea is to provide users with an installer and setup script 
+                that automatically configures their system, enabling them to start logging data with minimal effort. 
+                Users will only need to specify basic serial configurations such as 
+                <a href="https://en.wikipedia.org/wiki/Baud" target="_blank" rel="noopener noreferrer">baud rate</a>, stop bit, 
+                <strong>data bits</strong>, and 
+                <a href="https://en.wikipedia.org/wiki/Parity_bit" target="_blank" rel="noopener noreferrer">parity bit</a> through a simple 
+                <strong>JSON</strong> or <strong>YAML</strong> configuration file, while the system handles the rest 
+                automatically.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <article>
+                <h3>Modbus Logger</h3>
+                <p>
+                    Full project available on GitHub: 
+                    <a href="https://github.com/hngjesse/Modbus_loggers" target="_blank">
+                        https://github.com/hngjesse/Modbus_loggers
+                    </a>
+                </p>
+
+                <h4>Project Overview</h4>
+                <p>
+                    This project focuses on developing a robust and customizable data logging system for solar monitoring 
+                    applications using the Modbus RTU communication protocol over RS485. It is designed to operate 
+                    reliably on Linux-based systems, providing users with a lightweight yet powerful solution for long-term 
+                    industrial data acquisition.
+                </p>
+
+                <p>
+                    The system automatically collects, processes, and stores data from multiple Modbus-enabled devices
+                    such as DC meters and inverters with minimal configuration. Users only need to define their device 
+                    parameters (baud rate, parity, data bits, and stop bits) in a simple configuration file, while the 
+                    script handles all communication, error handling, and logging operations seamlessly.
+                </p>
+
+                <h4>Personal anecdote</h4>
+                <p>
+                    This project was inspired by a real challenge I encountered while assisting my supervisor with 
+                    recovering data hidden inside a mini PC used in a solar monitoring setup. The device had originally 
+                    been programmed to send data to a server in China, but the server was later shut down, leaving the 
+                    locally stored data inaccessible. Several attempts by previous students to extract the data were 
+                    unsuccessful.
+                </p>
+                <p>
+                    When I was assigned the task, I initially found only partial 
+                    <a href="https://en.wikipedia.org/wiki/Logging_(computing)#" target="_blank" rel="noopener noreferrer">log files</a>
+                    containing data from a single month, which led me to suspect that older data had been deleted periodically. 
+                    Refusing to give up, I requested to borrow the mini PC for three days to perform a deep system analysis. While backing up the 
+                    files, I noticed a 22 GB file that couldn’t be transferred to my USB drive due to the 
+                    <a href="https://en.wikipedia.org/wiki/File_Allocation_Table" target="_blank" rel="noopener noreferrer">FAT32</a> file size 
+                    limit. Its large size immediately drew my attention, it was likely the raw data file. Upon inspection, 
+                    the file turned out to be binary and unreadable, so I began researching how to decode it, eventually 
+                    succeeding (with the help of ChatGPT) in a single day.
+                </p>
+                <p>
+                    After successfully retrieving the data, I realized that the existing software which is developed for an outdated 
+                    <a href="https://en.wikipedia.org/wiki/Windows_7" target="_blank" rel="noopener noreferrer">Windows 7</a> 
+                    environment, was unreliable for long-term operation. To make the system more robust and 
+                    maintainable, I formatted the mini PC and installed 
+                    <a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener noreferrer">Linux</a>, then set 
+                    out to rebuild the data logging system from scratch.
+                </p>
+                <p>
+                    I discovered that the devices communicated using the Modbus RTU protocol over 
+                    <a href="https://en.wikipedia.org/wiki/RS-485" target="_blank" rel="noopener noreferrer">RS485</a>, 
+                    so I quickly learned how to handle both the hardware connections and communication parameters such as baud rate, 
+                    parity, data bits, and stop bits. Using 
+                    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>,
+                    I was able to read raw register values and decode them into meaningful 
+                    physical data. Through analysis, I identified the pattern behind the register structure, some used two 16-bit registers to 
+                    store 32-bit integers, while others stored floating-point numbers. Once I cracked that mapping, I successfully 
+                    restored full data access and built a new Modbus-based data logging system running on Linux, a more professional 
+                    and sustainable solution.
+                </p>
+
+            </article>
+
+            <article>
+                <h3>Three body simulation</h3>
+                <p>
+                    Full project available on GitHub: 
+                    <a href="https://github.com/hngjesse/Three_body_simulation" target="_blank">
+                        https://github.com/hngjesse/Three_body_simulation
+                    </a>
+                </p>
+                <h4>Project Overview</h4>
+                <p>
+                    This project investigates the classical three-body problem, which is a long-standing challenge in celestial 
+                    mechanics that studies the motion of three massive bodies under their mutual gravitational attraction. 
+                    Unlike the two-body problem, which has an analytical solution, the three-body problem is nonlinear and chaotic, 
+                    meaning even small variations in initial conditions can lead to vastly different trajectories. This sensitivity 
+                    makes it a rich and fascinating subject in both physics and computational science.
+                </p>
+                
+                <p>
+                    The primary goal of this project is to simulate the motion of three bodies using numerical integration techniques. 
+                    The algorithm implemented here is the fifth-order Runge–Kutta method (RK4(5)), known for its balance between 
+                    computational efficiency and numerical accuracy. The method was manually constructed using the Butcher Tableau, 
+                    allowing for precise control over each stage of integration and providing a strong understanding of how adaptive 
+                    step solvers approximate continuous dynamics.
+                </p>
+                <!-- Insert GIF here -->
+                <div style="text-align:center; margin: 20px 0;">
+                    <img src="three_body_animation.gif" alt="Three-body problem simulation" width="800">
+                    <p><em>Figure: Numerical simulation of the three-body system using RK4(5) method.</em></p>
+                </div>
+                <p>
+                    The simulation begins with user-defined initial conditions including the positions, velocities, and masses of the 
+                    three bodies, which can be freely modified within the MATLAB code. From there, the system evolves over time through 
+                    the iterative application of Newton’s law of universal gravitation. The results are visualized as an animated orbit, 
+                    showing the continuous interaction and orbital exchange between the three bodies. The animation highlights key physical 
+                    phenomena such as orbital instability, center-of-mass motion, and the emergent patterns that occasionally resemble 
+                    periodic orbits.
+                </p>
+                <p>
+                    This project serves as an example of how complex dynamical systems can be explored using relatively simple numerical 
+                    methods. It combines the core principles of computational physics, classical mechanics, and numerical analysis, 
+                    providing valuable insight into the unpredictable yet structured behavior of chaotic systems. The approach developed 
+                    here can also be extended to study n-body systems, orbital resonance phenomena, or energy exchange mechanisms in 
+                    astrophysical contexts.
+                </p>
+            </article>
+
+            <article>
+                <h3><a href="https://github.com/hngjesse" target="_blank">Other GitHub Projects</a></h3>
+                <p>
+                    Explore my open-source projects related to Python, data logging, and hardware interfacing.
+                </p>
+            </article>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+                🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+            </p>
+        </section>
+    </main>
+
+    <h3>References</h3>
+    <ol>
+        <li id="ref1">
+             B. A. Tay and Y. S. H’ng, Entanglement generation across exceptional points in a two-qubit 
+             open quantum system: The role of initial states, 
+            <a href="https://doi.org/10.1103/24cd-939t" target="_blank">Phys. Rev. E 112, 024133 (2025).</a>
+        </li>
+    </ol>
+
+
+
+    <footer>
+        <hr>
+        <p>© 2025 Jesse Hng — Built using GitHub Pages.</p>
+    </footer>
+</body>
+</html>
