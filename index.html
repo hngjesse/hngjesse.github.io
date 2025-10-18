@@ -70,10 +70,9 @@
                 The idea is to provide users with an installer and setup script 
                 that automatically configures their system, enabling them to start logging data with minimal effort. 
                 Users will only need to specify basic serial configurations such as 
-                <a href="https://en.wikipedia.org/wiki/Baud" target="_blank" rel="noopener noreferrer">baud rate</a>, stop bit, 
-                <strong>data bits</strong>, and 
-                <a href="https://en.wikipedia.org/wiki/Parity_bit" target="_blank" rel="noopener noreferrer">parity bit</a> through a simple 
-                <strong>JSON</strong> or <strong>YAML</strong> configuration file, while the system handles the rest 
+                <a href="https://en.wikipedia.org/wiki/Baud" target="_blank" rel="noopener noreferrer">baud rate</a>, stop bit, data bits, 
+                and <a href="https://en.wikipedia.org/wiki/Parity_bit" target="_blank" rel="noopener noreferrer">parity bit</a> through a 
+                simple <strong>JSON</strong> or <strong>YAML</strong> configuration file, while the system handles the rest 
                 automatically.
             </p>
         </section>
@@ -190,6 +189,44 @@
                     providing valuable insight into the unpredictable yet structured behavior of chaotic systems. The approach developed 
                     here can also be extended to study n-body systems, orbital resonance phenomena, or energy exchange mechanisms in 
                     astrophysical contexts.
+                </p>
+            </article>
+
+
+            <article>
+                <h3>Realistic Football Trajectory Simulation</h3>
+                <p>
+                    Full project available on GitHub: 
+                    <a href="https://github.com/hngjesse/Realistic_football_simulation" target="_blank">
+                        https://github.com/hngjesse/Realistic_football_simulation
+                    </a>
+                </p>
+                <h4>Project Overview</h4>
+                <p>
+                    This project numerically simulates the realistic 3D trajectory of a football using the Euler integration method. 
+                    The simulation accounts for all key aerodynamic forces acting on the ball such as gravity, drag force, lift (Magnus) 
+                    effect, and drag moment to recreate lifelike motion during free kicks, corner kicks, and general play.
+                </p>
+                
+                <p>
+                    Built in MATLAB, the program allows users to specify initial conditions such as launch position, velocity, spin axis, 
+                    and lift coefficient. The simulation then visualizes how different spins (around the x, y, or z axes) influence the 
+                    flight path, showing phenomena like the famous “banana kick.”
+                </p>
+                <!-- Insert GIF here -->
+                <div style="text-align:center; margin: 20px 0;">
+                    <img src="football_animation.gif" alt="Realistic football simulation" width="500">
+                    <p><em>Figure: Numerical simulation of the football using Euler method.</em></p>
+                </div>
+                <p>
+                    The model demonstrates the physical realism behind football aerodynamics by coupling Newton’s second law with aerodynamic 
+                    equations. The results show how the Magnus effect can cause the ball to swerve mid-air which is an effect exploited by 
+                    professional players to curve shots around defensive walls.
+                </p>
+                <p>
+                    The final visualization includes a 3D-rendered football field where users can watch the simulated trajectory evolve in real 
+                    time, revealing how spin direction and air resistance shape the motion. This project highlights the power of computational 
+                    physics in connecting mathematics, coding, and real-world phenomena.
                 </p>
             </article>
 
