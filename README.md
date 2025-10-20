@@ -1,6 +1,6 @@
 # Hng Jesse
 
-**Physicist • Developer • Creator of Modbus Loggers**  
+**Physicist • Developer • Modbus Loggers coder**  
 [LinkedIn](https://www.linkedin.com/in/hngys/) | [GitHub](https://github.com/hngjesse) | [Current Project](https://hngjesse.github.io/Modbus_loggers/)
 
 ---
