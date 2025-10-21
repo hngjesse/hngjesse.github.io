@@ -31,9 +31,63 @@
             border-top: 1px solid #30363d;
             margin: 20px 0;
         }
-        p {
-        text-align: justify;
+        pre {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            color: #c9d1d9;
         }
+        code {
+            background-color: #21262d;
+            color: #c9d1d9;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        p {
+            text-align: justify;
+        }
+
+    @media (max-width: 768px) {
+        body {
+            margin: 10px;
+            padding: 0 10px;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 1.6em;
+        }
+
+        h2 {
+            font-size: 1.3em;
+        }
+
+        pre {
+            font-size: 0.8rem;
+            padding: 10px;
+        }
+
+        nav a {
+            display: block;
+            margin: 8px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        p {
+            text-align: left;  /* easier to read on narrow screens */
+        }
+    }
+
     </style>
 </head>
 <body>
