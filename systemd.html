@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systemd Documentation | Hng Jesse</title>
+  <style>
+    body {
+        background-color: #0d1117;  /* GitHub dark mode background */
+        color: #c9d1d9;             /* GitHub text color */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        line-height: 1.6;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    header, footer {
+      text-align: center;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #30363d;
+      margin: 30px 0;
+    }
+    pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      color: #c9d1d9;
+    }
+    code {
+      background-color: #21262d;
+      color: #c9d1d9;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    p {
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        margin: 10px;
+        padding: 0 10px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      pre {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      p {
+        text-align: left;  /* easier to read on narrow screens */
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Systemd Documentation</h1>
+    <nav>by <strong>Hng Jesse</strong></nav>
+    <nav>
+      <a href="https://github.com/hngjesse" target="_blank">GitHub Page</a> |
+      <a href="https://hngjesse.github.io/" target="_blank">Homepage</a>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <section>
+  <h2>Introduction</h2>
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Systemd" target="_blank">Systemd</a>
+    is a default <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux-based</a>
+    software that manages how, when, what, and where Linux services run. It is a powerful tool that allows users to have greater 
+    control over the operating system, especially when there are multiple services that need to be managed. More specifically,
+    systemd lets users decide which processes should run at startup, these are known as 
+    <a href="https://en.wikipedia.org/wiki/init" target="_blank">init systems</a>. Another common use 
+    case is scheduling recurring tasks, for example, running a specific program every five seconds.
+  </p>
+  <p>
+    There are other tools such as <a href="https://en.wikipedia.org/wiki/cron" target="_blank">cron</a>, 
+    <a href="https://en.wikipedia.org/wiki/Jenkins_(software)" target="_blank">Jenkins</a>, and 
+    <a href="https://www.rundeck.com/" target="_blank">Rundeck</a> that can perform certain automation or scheduling tasks similar 
+    to systemd. However, systemd provides a more comprehensive and integrated approach, covering almost every aspect of service 
+    management, automation, and timed execution. Therefore, it is often preferred in professional Linux environments, especially for 
+    stable and reliable data logging systems.
+  </p>
+  <p>
+    Systemd was initiated by <a href="https://en.wikipedia.org/wiki/Red_Hat" target="_blank">Red Hat</a> engineers 
+    <a href="https://en.wikipedia.org/wiki/Lennart_Poettering" target="_blank">Lennart Poettering</a> and 
+    <a href="https://en.wikipedia.org/wiki/Kay_Sievers" target="_blank">Kay Sievers</a> in 2010 as a replacement for the older System 
+    V init. Their goal was to modernize the Linux initialization process, improving efficiency and flexibility. Poettering’s blog post, 
+    titled <a href="https://0pointer.de/blog/projects/systemd.html" target="_blank">Rethinking PID 1</a>, introduced the first 
+    experimental version of systemd and outlined its vision to enhance dependency handling, enable more parallel process execution during 
+    boot, and reduce the computational overhead associated with shell scripting.
+  </p>
+  <p>
+    In May 2011, <a href="https://en.wikipedia.org/wiki/Fedora_Linux" target="_blank">Fedora Linux</a> became the first major distribution 
+    to adopt systemd as its default init system, replacing <a href="https://en.wikipedia.org/wiki/Upstart_(software)" target="_blank">Upstart</a>. 
+    This was followed by <a href="https://en.wikipedia.org/wiki/Arch_Linux" target="_blank">Arch Linux</a> in 2012, after developers agreed that 
+    systemd was faster, more feature-rich, and easier to maintain than <a href="https://wiki.gentoo.org/wiki/Sysvinit" target="_blank">sysvinit</a>. 
+    Despite some controversy within the open-source community, particularly regarding its complexity, reliance on D-Bus, and its binary log 
+    format—many maintainers viewed these as advantages that improved performance and maintainability.
+  </p>
+  <p>
+    Between 2013 and 2014, the debate over adopting systemd reached the <a href="https://en.wikipedia.org/wiki/Debian" target="_blank">Debian</a> 
+    community, where it became a major topic of discussion. After much deliberation, Debian decided to make systemd the default init system in 
+    Debian 8. The decision led to several developer resignations due to the heated nature of the debate, but eventually, other major distributions 
+    such as <a href="https://en.wikipedia.org/wiki/Ubuntu" target="_blank">Ubuntu</a> also followed suit, replacing Upstart with systemd. Since then, 
+    systemd has continued to evolve, introducing new components such as <code>machinectl shell</code> for login management, though it has also faced 
+    occasional criticism due to security vulnerabilities discovered in later years.
+  </p>
+  <p>
+    Overall, systemd represents a significant evolution in Linux system management combining speed, automation, and process control
+    into a unified framework that has become the standard across most modern Linux distributions.
+  </p>
+
+  <p>
+    Systemd has several <strong>advantages</strong>:
+  </p>
+  <ul>
+    <li>Fast and parallelized boot process</li>
+    <li>Unified management of services, logs, and dependencies</li>
+    <li>Powerful process tracking and restart capabilities</li>
+    <li>Integrated logging via <code>journalctl</code></li>
+    <li>Improved security and isolation through cgroups and namespaces</li>
+  </ul>
+</section>
+
+
+    <hr>
+
+    <section>
+  <h2>Create Your First Service in systemd</h2>
+  <p>
+    In this section, we will demonstrate how to create your own service so that your Linux system can recognize
+    and automatically manage it. All user-defined services are stored in the directory
+    <code>/etc/systemd/system/</code>. To create a new service, start by creating a service file using the command below:
+  </p>
+
+  <pre><code>sudo nano /etc/systemd/system/x_logger.service</code></pre>
+
+  <p>
+    After creating the file, you can define your service by adding the following configuration:
+  </p>
+
+  <pre><code>[Unit]
+Description=X Data Logger
+After=network.target
+
+[Service]
+Type=simple
+User=utar-mini-pc
+WorkingDirectory=/path/to/your/Modbus_loggers
+ExecStart=/path/to/your/python/environment/python modbus_logger.py configs/x_conf.json
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+  </code></pre>
+
+  <p>
+    Let’s go through each section and attribute to understand their purpose:
+  </p>
+
+  <ul>
+    <li>
+      <strong>[Unit]</strong>: Defines metadata and dependencies of the service.
+      <ul>
+        <li><strong>Description</strong> – A short summary of what the service does.</li>
+        <li><strong>After</strong> – Specifies which system target or service must start before this one. 
+        For example, <code>After=network.target</code> ensures the network is ready before this service starts.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>[Service]</strong>: Defines how the service behaves when started or stopped.
+      <ul>
+        <li><strong>Type=simple</strong> – Indicates that the service runs continuously in the foreground.</li>
+        <li><strong>User</strong> – Specifies which user account runs the service. It is good practice not to run services as root for security reasons.</li>
+        <li><strong>WorkingDirectory</strong> – Sets the directory where the service will execute. 
+        This is often where your scripts or configuration files are located.</li>
+        <li><strong>ExecStart</strong> – Defines the command to run when the service starts. 
+        In this example, it launches your Python logger script with the specified configuration file.</li>
+        <li><strong>Restart</strong> – Determines whether the service should automatically restart if it stops or fails. 
+        Setting it to <code>always</code> ensures high availability.</li>
+        <li><strong>RestartSec</strong> – Specifies how many seconds to wait before restarting the service after a failure.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>[Install]</strong>: Defines how the service integrates with the system.
+      <ul>
+        <li><strong>WantedBy</strong> – Specifies the target under which the service should be enabled.
+        <code>multi-user.target</code> means the service will start automatically during normal multi-user system boot.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>
+    Once you’ve saved the file, reload the systemd daemon so that it recognizes the new service:
+  </p>
+
+  <pre><code>sudo systemctl daemon-reload</code></pre>
+
+  <p>
+    You can then start and enable the service using the following commands:
+  </p>
+
+  <pre><code>sudo systemctl start x_logger.service
+sudo systemctl status x_logger.service
+sudo systemctl enable x_logger.service</code></pre>
+
+  <p>
+    With this setup, your custom data logging service will automatically start on boot and restart if it encounters an error, 
+    ensuring continuous and reliable operation.
+  </p>
+
+ <hr>
+
+    <h2>Tail the Service Log</h2>
+  <p>
+    You can monitor your service’s real-time output using <code>journalctl</code>. 
+    The following command continuously displays log entries for your service:
+  </p>
+
+  <pre><code>journalctl -u x_logger.service -f -o cat</code></pre>
+
+  <p>
+    The <code>-u</code> flag specifies the unit (service) name, <code>-f</code> follows the log (like <code>tail -f</code>), 
+    and <code>-o cat</code> prints only the log message, without metadata.
+  </p>
+
+ <hr>
+
+  <h2>Stop and Remove the Service</h2>
+  <p>
+    To stop and completely remove your service from the system, run the following commands in order:
+  </p>
+
+  <pre><code>sudo systemctl stop x_logger.service
+sudo systemctl disable x_logger.service
+sudo rm /etc/systemd/system/x_logger.service
+sudo systemctl daemon-reload</code></pre>
+
+  <p>
+    Finally, verify that the service has been removed:
+  </p>
+
+  <pre><code>systemctl status x_logger.service</code></pre>
+
+  <p>
+    If the removal is successful, systemd will respond with a message indicating that the service could not be found.
+  </p>
+</section>
+
+ <hr>
+ 
+    </section>
+        <article>
+            <h3>Other GitHub Projects</h3>
+            <p>
+                Full project available on GitHub: 
+                <a href="https://github.com/hngjesse" target="_blank">
+                    https://github.com/hngjesse
+                </a>
+            </p>
+        </article>
+    </section>
+    <hr>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+            🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+        </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>© 2025 Hng Jesse — Published via GitHub Pages</p>
+  </footer>
+</body>
+</html>
