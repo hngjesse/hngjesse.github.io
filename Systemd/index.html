@@ -21,7 +21,7 @@
     <!-- Add sidebar -->
 
   <header>
-    <h1>Systemd Documentation</h1>
+    <h1>Introduction of Systemd</h1>
     <nav>by <strong>Hng Jesse</strong></nav>
     <nav>
       <a href="https://github.com/hngjesse" target="_blank">GitHub Page</a> |
@@ -33,52 +33,39 @@
   <main>
     <section>
   <h2>Introduction</h2>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/Systemd" target="_blank">Systemd</a>
-    is a default <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux-based</a>
-    software that manages how, when, what, and where Linux services run. It is a powerful tool that allows users to have greater 
-    control over the operating system, especially when there are multiple services that need to be managed. More specifically,
-    systemd lets users decide which processes should run at startup, these are known as 
-    <a href="https://en.wikipedia.org/wiki/init" target="_blank">init systems</a>. Another common use 
-    case is scheduling recurring tasks, for example, running a specific program every five seconds.
-  </p>
-  <p>
-    There are other tools such as <a href="https://en.wikipedia.org/wiki/cron" target="_blank">cron</a>, 
-    <a href="https://en.wikipedia.org/wiki/Jenkins_(software)" target="_blank">Jenkins</a>, and 
-    <a href="https://www.rundeck.com/" target="_blank">Rundeck</a> that can perform certain automation or scheduling tasks similar 
-    to systemd. However, systemd provides a more comprehensive and integrated approach, covering almost every aspect of service 
-    management, automation, and timed execution. Therefore, it is often preferred in professional Linux environments, especially for 
-    stable and reliable data logging systems.
-  </p>
-  <p>
-    Systemd was initiated by <a href="https://en.wikipedia.org/wiki/Red_Hat" target="_blank">Red Hat</a> engineers 
-    <a href="https://en.wikipedia.org/wiki/Lennart_Poettering" target="_blank">Lennart Poettering</a> and 
-    <a href="https://en.wikipedia.org/wiki/Kay_Sievers" target="_blank">Kay Sievers</a> in 2010 as a replacement for the older System 
-    V init. Their goal was to modernize the Linux initialization process, improving efficiency and flexibility. Poettering’s blog post, 
-    titled <a href="https://0pointer.de/blog/projects/systemd.html" target="_blank">Rethinking PID 1</a>, introduced the first 
-    experimental version of systemd and outlined its vision to enhance dependency handling, enable more parallel process execution during 
-    boot, and reduce the computational overhead associated with shell scripting.
-  </p>
-  <p>
-    In May 2011, <a href="https://en.wikipedia.org/wiki/Fedora_Linux" target="_blank">Fedora Linux</a> became the first major distribution 
-    to adopt systemd as its default init system, replacing <a href="https://en.wikipedia.org/wiki/Upstart_(software)" target="_blank">Upstart</a>. 
-    This was followed by <a href="https://en.wikipedia.org/wiki/Arch_Linux" target="_blank">Arch Linux</a> in 2012, after developers agreed that 
-    systemd was faster, more feature-rich, and easier to maintain than <a href="https://wiki.gentoo.org/wiki/Sysvinit" target="_blank">sysvinit</a>. 
-    Despite some controversy within the open-source community, particularly regarding its complexity, reliance on D-Bus, and its binary log 
-    format—many maintainers viewed these as advantages that improved performance and maintainability.
-  </p>
-  <p>
-    Between 2013 and 2014, the debate over adopting systemd reached the <a href="https://en.wikipedia.org/wiki/Debian" target="_blank">Debian</a> 
-    community, where it became a major topic of discussion. After much deliberation, Debian decided to make systemd the default init system in 
-    Debian 8. The decision led to several developer resignations due to the heated nature of the debate, but eventually, other major distributions 
-    such as <a href="https://en.wikipedia.org/wiki/Ubuntu" target="_blank">Ubuntu</a> also followed suit, replacing Upstart with systemd. Since then, 
-    systemd has continued to evolve, introducing new components such as <code>machinectl shell</code> for login management, though it has also faced 
-    occasional criticism due to security vulnerabilities discovered in later years.
-  </p>
-  <p>
-    Overall, systemd represents a significant evolution in Linux system management combining speed, automation, and process control
-    into a unified framework that has become the standard across most modern Linux distributions.
-  </p>
+<p>
+  <a href="https://en.wikipedia.org/wiki/Systemd" target="_blank">Systemd</a> is a core
+  <a href="https://en.wikipedia.org/wiki/Linux" target="_blank">Linux</a> tool that manages
+  when and how system services run. It replaces traditional
+  <a href="https://en.wikipedia.org/wiki/init" target="_blank">init systems</a>, letting users
+  control startup services and schedule recurring tasks with precision.
+</p>
+<p>
+  Alternatives like <a href="https://en.wikipedia.org/wiki/cron" target="_blank">cron</a>,
+  <a href="https://en.wikipedia.org/wiki/Jenkins_(software)" target="_blank">Jenkins</a>, and
+  <a href="https://www.rundeck.com/" target="_blank">Rundeck</a> offer automation, but systemd
+  provides a more integrated solution for managing, automating, and monitoring processes, which is
+  ideal for stable and reliable data logging systems.
+</p>
+<p>
+  Developed in 2010 by <a href="https://en.wikipedia.org/wiki/Lennart_Poettering" target="_blank">Lennart Poettering</a>
+  and <a href="https://en.wikipedia.org/wiki/Kay_Sievers" target="_blank">Kay Sievers</a> at
+  <a href="https://en.wikipedia.org/wiki/Red_Hat" target="_blank">Red Hat</a>, systemd modernized
+  Linux boot processes with better dependency handling and parallel execution. 
+  Poettering’s post <a href="https://0pointer.de/blog/projects/systemd.html" target="_blank">Rethinking PID 1</a>
+  introduced its design goals.
+</p>
+<p>
+  <a href="https://en.wikipedia.org/wiki/Fedora_Linux" target="_blank">Fedora</a> first adopted systemd in 2011,
+  followed by <a href="https://en.wikipedia.org/wiki/Arch_Linux" target="_blank">Arch Linux</a> and
+  <a href="https://en.wikipedia.org/wiki/Debian" target="_blank">Debian</a>, despite debates over its complexity.
+  Eventually, <a href="https://en.wikipedia.org/wiki/Ubuntu" target="_blank">Ubuntu</a> and others also switched,
+  making systemd the standard across most modern distributions.
+</p>
+<p>
+  Today, systemd unifies service management, automation, and performance optimization across Linux systems.
+</p>
+
 
   <p>
     Systemd has several <strong>advantages</strong>:

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Guide | Hng Jesse</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+    <script>
+    fetch('../sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+        });
+    </script>
+
+    <header>
+        <h1>GitHub Introduction & Cheat Sheet</h1>
+        <nav>by <strong>Hng Jesse</strong></nav>
+        <nav>
+            <a href="https://github.com/hngjesse" target="_blank">GitHub Page</a> |
+            <a href="https://hngjesse.github.io/" target="_blank">Homepage</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                <a href="https://github.com" target="_blank">GitHub</a> is a web-based platform built on top of 
+                <a href="https://git-scm.com/" target="_blank">Git</a>, a version control system developed by 
+                <a href="https://en.wikipedia.org/wiki/Linus_Torvalds" target="_blank">Linus Torvalds</a>. 
+                GitHub allows developers to host their code, collaborate with others, track changes, and manage projects efficiently.
+            </p>
+            <p>
+                With GitHub, you can store repositories (repos) that contain your source code, documentation, and project files.
+                It simplifies version control by providing visual interfaces for commits, branches, and pull requests.
+                Beyond just code hosting, GitHub also supports documentation (via <code>README.md</code>), automation with 
+                <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a>, and website publishing via 
+                <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+            </p>
+            <p>
+                GitHub is especially powerful for open-source collaboration. It allows multiple contributors to make changes
+                to the same project without overwriting each other’s work, using Git’s branching and merging system.
+                It has become the de facto standard for software version management and collaboration.
+            </p>
+            <ul>
+                <li> Track every change in your code (version control)</li>
+                <li> Collaborate with others through pull requests and issues</li>
+                <li> Host your portfolio or documentation via GitHub Pages</li>
+                <li> Automate workflows using GitHub Actions</li>
+                <li> Securely store and manage projects in private or public repos</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>GitHub Cheat Sheet</h2>
+            <p>
+                This section provides a quick reference on how to set up a GitHub repository and use basic 
+                <code>git</code> commands to push your local project to GitHub.
+            </p>
+
+            <h3>1. Install Git</h3>
+            <p>Install Git using your system package manager:</p>
+            <pre><code># Ubuntu / Debian
+sudo apt install git
+
+# Fedora / RHEL
+sudo dnf install git
+
+# macOS (with Homebrew)
+brew install git
+            </code></pre>
+
+            <h3>2. Configure Git</h3>
+            <p>Set your username and email (used for commits):</p>
+            <pre><code>git config --global user.name "Your Name"
+git config --global user.email "youremail@example.com"</code></pre>
+
+            <h3>3. Create a New GitHub Repository</h3>
+            <p>
+                Go to <a href="https://github.com/new" target="_blank">https://github.com/new</a> and create a new repository.  
+                You can make it public or private, and optionally initialize it with a README file.
+            </p>
+
+            <h3>4. Link Your Local Folder to GitHub</h3>
+            <p>In your terminal, navigate to your project folder and initialize Git:</p>
+            <pre><code>cd /path/to/your/project
+git init
+git add .
+git commit -m "Initial commit"</code></pre>
+
+            <p>Then connect your local folder to the GitHub repository you just created:</p>
+            <pre><code>git remote add origin https://github.com/yourusername/your-repo.git</code></pre>
+
+            <p>Verify that the remote link is correct:</p>
+            <pre><code>git remote -v</code></pre>
+
+            <h3>5. Push Your Code to GitHub</h3>
+            <p>Upload your code to GitHub:</p>
+            <pre><code>git branch -M main
+git push -u origin main</code></pre>
+
+            <p>Once completed, your project files will appear on GitHub under your repository’s page.</p>
+
+            <h3>6. Common Git Commands</h3>
+            <ul>
+                <li><code>git status</code> – Check which files are modified or staged</li>
+                <li><code>git add &lt;filename&gt;</code> – Stage changes for commit</li>
+                <li><code>git commit -m "message"</code> – Save your changes locally</li>
+                <li><code>git push</code> – Upload local commits to GitHub</li>
+                <li><code>git pull</code> – Fetch and merge the latest changes from GitHub</li>
+                <li><code>git clone &lt;repo-url&gt;</code> – Copy a repository to your local system</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Example Workflow</h2>
+            <p>
+                Here’s a minimal end-to-end example of creating a new repo, adding code, and pushing it online:
+            </p>
+            <pre><code># Create and enter a new project
+mkdir myproject
+cd myproject
+
+# Initialize git and add files
+git init
+echo "Hello GitHub!" > README.md
+git add README.md
+git commit -m "Add README"
+
+# Connect to GitHub and push
+git remote add origin https://github.com/yourusername/myproject.git
+git branch -M main
+git push -u origin main
+            </code></pre>
+
+            <p>
+                After running these commands, visit your repository page on GitHub — your README file should be visible!
+            </p>
+        </section>
+
+        <hr>
+
+        <article>
+            <h3>Other GitHub Projects</h3>
+            <p>
+                Explore my projects and documentation on GitHub: 
+                <a href="https://github.com/hngjesse" target="_blank">
+                    https://github.com/hngjesse
+                </a>
+            </p>
+        </article>
+
+        <hr>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+                🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p>© 2025 Hng Jesse — Published via GitHub Pages</p>
+    </footer>
+</body>
+</html>
