@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mqtt Logger Documentation | Hng Jesse</title>
+  <style>
+    body {
+        background-color: #0d1117;  /* GitHub dark mode background */
+        color: #c9d1d9;             /* GitHub text color */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        line-height: 1.6;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+    }
+    header, footer {
+      text-align: center;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #30363d;
+      margin: 30px 0;
+    }
+    pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      color: #c9d1d9;
+    }
+    code {
+      background-color: #21262d;
+      color: #c9d1d9;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    p {
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        margin: 10px;
+        padding: 0 10px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.6em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      pre {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      p {
+        text-align: left;  /* easier to read on narrow screens */
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mqtt Logger Documentation</h1>
+    <nav>by <strong>Hng Jesse</strong></nav>
+    <nav>
+      <a href="https://github.com/hngjesse/Mqtt_loggers" target="_blank">GitHub Repository</a> |
+      <a href="https://hngjesse.github.io/" target="_blank">Homepage</a>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        This project addresses common challenges encountered in data logging using the 
+        <a href="https://en.wikipedia.org/wiki/MQTT" target="_blank">MQTT</a> communication protocol.
+        MQTT was introduced in 1999 by <strong>Andy Stanford-Clark</strong> and <strong>Arlen Nipper</strong> 
+        for monitoring oil pipelines within SCADA industrial control systems. The goal was to have a protocol 
+        that is bandwidth-efficient, lightweight and uses little battery power, because the devices were 
+        connected via satellite link, which was extremely expensive at that time.
+      </p>
+      <p>
+        One classification of MQTT communication is the 
+        <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern" target="_blank">Publish-subscribe pattern</a>, 
+        where devices (clients) publish messages to a central broker, which then distributes these messages to other clients 
+        that have subscribed to specific topics. This decouples the message sender from the receiver, allowing for 
+        greater flexibility and scalability in data communication.
+      </p>
+      <p>
+        Any device capable of connecting to a network can act as an MQTT client, making the protocol highly suitable
+        for Internet of Things (IoT) applications. Microcontrollers such as the 
+        <a href="https://en.wikipedia.org/wiki/ESP8266" target="_blank">ESP8266</a> 
+        or <a href="https://en.wikipedia.org/wiki/ESP32" target="_blank">ESP32</a>, single-board computers like the 
+        <a href="https://en.wikipedia.org/wiki/Raspberry_Pi" target="_blank">Raspberry Pi</a>, and various types of sensors 
+        can all publish data to an MQTT broker or subscribe to receive messages from other devices.
+      </p>
+      <p>
+        Moreover, MQTT broker can listen to multiple topics simultaneously, and multiple clients can subscribe to the 
+        same topic or different topics based on their data requirements. This makes MQTT a versatile choice for applications
+        ranging from home automation to industrial monitoring systems.
+      </p>
+      <p>
+        MQTT has several <strong>advantages</strong>:
+      </p>
+      <ul>
+        <li>Eliminate insecure client connections with appropriate configuration</li>
+        <li>Easy to scale from single device to thousands</li>
+        <li>Able to track and manage the clients</li>
+        <li>Extremely lightweight</strong></li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Coding and File Structure</h2>
+      <p>
+        The main working directory of this Python project is <code>Mqtt_loggers</code>. It contains three key subdirectories:
+      </p>
+      <ul>
+        <li><code>configs</code></li>
+        <li><code>data_storage</code></li>
+        <li><code>utils</code></li>
+      </ul>
+      <p>
+        The core script, <code>mqtt_logger.py</code>, is located in the <code>Mqtt_loggers</code> directory. 
+        This script provides the foundational structure for the entire data logging system. It defines the main 
+        workflow and executes essential functions sequentially or in a continuous loop. 
+        <strong>Users are not advised to modify this file</strong> unless they fully understand its internal logic.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Configuration JSON File</h2>
+      <p>
+        The <code>configs</code> subdirectory contains JSON configuration files that define communication 
+        and logging parameters for each Mqtt device.
+      </p>
+
+      <h3>Example</h3>
+      <pre><code>{
+  "mqtt": {
+    "host": "192.168.1.14",
+    "port": 1883,
+    "topics": ["sensors/#"],
+    "client_id": "esp32_logger",
+    "device_name": "water_cooled_pv"
+  },
+  "logging": {
+    "base_folder": "/mnt/data_storage/Mqtt_loggers/data_storage/water_cooled_pv",
+    "log_retention_days": 7,
+    "file_suffix": "water_cooled_pv",
+    "time_step": 3,
+    "header": [
+      "timestamp",
+      "temp_1",
+      "temp_2",
+      "temp_3",
+      "temp_4",
+      "temp_5",
+      "temp_6",
+      "temp_7",
+      "temp_8",
+      "temp_9",
+      "temp_10",
+      "water_level",
+      "irradiance",
+      "ssr_status"
+    ]
+  }
+}</code></pre>
+
+      <h3>Parameter Explanation</h3>
+      <p><strong>MQTT Section:</strong></p>
+      <ul>
+        <li><code>host</code>: Local IP address of MQTT broker.</li>
+        <li><code>port</code>: Comminication endpoint of network service, usually 1883 for MQTT-based communication.</li>
+        <li><code>topics</code>: List of MQTT topics to subscribe to.</li>
+        <li><code>client_id</code>: Unique identifier for the MQTT client.</li>
+        <li><code>device_name</code>: Name of the device for logging purposes.</li>
+
+      <p><strong>Logging Section:</strong></p>
+      <ul>
+        <li><code>base_folder</code>: Directory for log files.</li>
+        <li><code>log_retention_days</code>: How long logs are retained.</li>
+        <li><code>file_suffix</code>: Label for filenames.</li>
+        <li><code>header</code>: Defines CSV structure.</li>
+        <li><code>time_step</code>: Logging interval in seconds.</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Utilities Folder</h2>
+      <p>
+        The <code>utils</code> directory includes:
+      </p>
+      <ul>
+        <li><code>__init__.py</code></li>
+        <li><code>common_utils.py</code></li>
+        <li><code>validate_config.py</code></li>
+        <li><code>device_specific_func.py</code></li>
+      </ul>
+      <p>
+        <code>common_utils.py</code> provides helper functions used by the main script.
+        <code>validate_config.py</code> verifies JSON files for formatting or logical errors.
+        The <code>device_specific_func.py</code> file is where users can define custom functions for their Modbus devices.<br>
+        This modular approach allows users to log data from different devices by simply writing their own device-specific function 
+        without modifying the main logging structure.
+      </p>
+
+      <h3>Example Device-Specific Function</h3>
+      <pre><code class="language-python">
+import logging
+import time
+
+logger = logging.getLogger(__name__)
+
+def water_cooled_pv(data_buffer, csv_file, header):
+    """
+    Write buffered MQTT data into the daily CSV file.
+
+    Args:
+        data_buffer (dict): Latest key-value pairs from MQTT messages.
+        csv_file (str): Path to the CSV file for the current day.
+        header (list): Column headers (first is usually 'timestamp').
+    """
+    try:
+        if not data_buffer:
+            logger.warning("[water_cooled_pv] No data to log — buffer empty.")
+            return
+
+        timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+        row = [timestamp]
+
+        # Fill in columns in the same order as the header
+        for h in header[1:]:
+            row.append(data_buffer.get(h, ""))
+
+        with open(csv_file, "a") as f:
+            f.write(",".join(map(str, row)) + "\n")
+
+        logger.info(f"[water_cooled_pv] Logged {len(header)-1} values to CSV: {csv_file}")
+
+    except Exception as e:
+        logger.error(f"[water_cooled_pv] Failed to write CSV: {e}")
+</code></pre>
+    <hr>
+    </section>
+        <article>
+            <h3>Other GitHub Projects</h3>
+            <p>
+                Full project available on GitHub: 
+                <a href="https://github.com/hngjesse" target="_blank">
+                    https://github.com/hngjesse
+                </a>
+            </p>
+        </article>
+    </section>
+    <hr>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+            🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+        </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>© 2025 Hng Jesse — Published via GitHub Pages</p>
+  </footer>
+</body>
+</html>
