@@ -9,15 +9,6 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <div id="sidebar"></div>
-    <script>
-    fetch('../sidebar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('sidebar').innerHTML = data;
-        });
-    </script>
 
     <header>
         <h1>GitHub Introduction & Cheat Sheet</h1>
@@ -177,5 +168,36 @@ git push -u origin main
         <hr>
         <p>© 2025 Hng Jesse — Published via GitHub Pages</p>
     </footer>
+
+    <!-- Add sidebar -->
+    <div id="sidebar"></div>
+    <script>
+    fetch('../Navigations/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('sidebar').innerHTML = data;
+        });
+    </script>
+
+
+    <!-- Add rightlinks -->
+    <div id="rightlinks"></div>
+    <script>
+    fetch('../Navigations/rightlinks.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('rightlinks').innerHTML = data;
+        });
+    </script>
+
+    <!-- Add rightpanel -->
+    <div id="rightpanel"></div>
+    <script>
+    fetch('../Navigations/rightpanel.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('rightpanel').innerHTML = data;
+        });
+    </script>
 </body>
 </html>

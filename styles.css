@@ -5,6 +5,7 @@ body {
     max-width: 800px;
     margin: 40px auto;
     line-height: 1.6;
+    padding-top: 10px;
 }
 a {
     color: #58a6ff;
@@ -107,6 +108,8 @@ p {
     left: 0;
     transition: transform 0.3s ease;
     z-index: 999;
+
+    border-right: 1px solid #006875;
 }
 
 .sidebar h2 {
@@ -165,58 +168,73 @@ p {
 
 
 
-
-/* --- right elements --- */
-.right-links {
+/* --- Top Center Bar (matches sidebar style) --- */
+.rightlinks {
     position: fixed;
-    right: 15px;
-    top: 1%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.4);
-    z-index: 998;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    width: 800px;
+    background-color: #203d50; /* same as sidebar */
+    color: white;
+    padding: 5px 24px;
+
+    z-index: 999;
+    transition: background-color 0.3s ease;
+    border-radius: 0 0 8px 8px; /* slightly rounded bottom corners */
+
+    border-right: 1px solid #006875;
+    border-bottom: 1px solid #006875;
+    border-left: 1px solid #006875;
 }
 
-.right-links a {
-    color: #58a6ff;
+.rightlinks a {
+    color: white;
     text-decoration: none;
-    font-size: 0.9rem;
-    text-align: center;
+    padding: 2px 16px;
+    white-space: nowrap;
 }
 
-.right-links a:hover {
-    color: #00bcd4;
+.rightlinks a:hover {
+    background-color: #0f3044;      /* same hover bg as sidebar */
+    border-top: 3px solid #00bcd4; /* same accent color */
 }
 
-/* --- Make it less intrusive on mobile --- */
+/* --- Make it simpler on mobile --- */
 @media (max-width: 768px) {
-    .right-links {
+    .rightlinks {
         position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 20px;
+        flex-wrap: wrap;
+        gap: 8px;
         background: none;
         border: none;
         box-shadow: none;
+        border-radius: 0;
+        padding: 8px;
+    }
+    .rightlinks a {
+        padding: 6px 10px;
     }
 }
 
 
 
 
+
 /* --- Right floating info panel --- */
-.right-panel {
-    position: absolute;
-    top: 80px;
+.rightpanel {
+    position: fixed;
+    top: 100px;
     right: 180px;
     width: 220px;
-    background-color: #161b22;
-    border: 1px solid #30363d;
+    background-color: #0d1117;
+    border: 1px solid #233e5c;
     border-radius: 8px;
     padding: 15px;
     font-size: 0.9rem;
@@ -226,7 +244,7 @@ p {
     line-height: 1.0
 }
 
-.right-panel h3 {
+.rightpanel h3 {
     color: #ffffff;
     font-size: 1rem;
     margin-bottom: 0.6rem;
@@ -234,18 +252,18 @@ p {
     padding-bottom: 4px;
 }
 
-.right-panel a {
+.rightpanel a {
     color: #58a6ff;
     text-decoration: none;
 }
 
-.right-panel a:hover {
+.rightpanel a:hover {
     text-decoration: underline;
 }
 
 /* --- Hide or move on small screens --- */
 @media (max-width: 1700px) {
-    .right-panel {
+    .rightpanel {
         position: static;
         width: auto;
         background: none;
