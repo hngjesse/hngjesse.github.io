@@ -133,6 +133,12 @@ p {
     border-left: 4px solid #00bcd4;
 }
 
+.sidebar a.active {
+    background-color: #0f3044;
+    border-left: 4px solid #00bcd4;
+    font-weight: bold;
+}
+
 /* --- Toggle button (visible only on mobile) --- */
 .toggle-btn {
     position: fixed;

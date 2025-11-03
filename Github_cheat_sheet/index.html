@@ -171,19 +171,28 @@ git push -u origin main
 
     <!-- Add sidebar -->
     <div id="sidebar"></div>
+
     <script>
-    fetch('../Navigations/sidebar.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('sidebar').innerHTML = data;
-        });
+    fetch('/Navigations/sidebar.html')
+      .then(response => response.text())
+      .then(data => {
+        const container = document.getElementById('sidebar');
+        container.innerHTML = data;
+
+        // load and run the highlight script after injection
+        const s = document.createElement('script');
+        s.src = '/Navigations/sidebar.js'; // path to the script
+        s.onload = () => { if (typeof highlightSidebar === 'function') highlightSidebar(); };
+        document.body.appendChild(s);
+      })
+      .catch(err => console.error('Failed to load sidebar:', err));
     </script>
 
 
     <!-- Add rightlinks -->
     <div id="rightlinks"></div>
     <script>
-    fetch('../Navigations/rightlinks.html')
+    fetch('/Navigations/rightlinks.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('rightlinks').innerHTML = data;
@@ -193,7 +202,7 @@ git push -u origin main
     <!-- Add rightpanel -->
     <div id="rightpanel"></div>
     <script>
-    fetch('../Navigations/rightpanel.html')
+    fetch('/Navigations/rightpanel.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('rightpanel').innerHTML = data;

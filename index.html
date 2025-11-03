@@ -142,7 +142,7 @@
                 </p>
                 <!-- Insert GIF here -->
                 <div style="text-align:center; margin: 20px 0;">
-                    <img src="Figures/three_body_animation.gif" alt="Three-body problem simulation" width="800">
+                    <img src="/Figures/three_body_animation.gif" alt="Three-body problem simulation" width="800">
                     <p><em>Figure: Numerical simulation of the three-body system using RK4(5) method.</em></p>
                 </div>
                 <p>
@@ -184,7 +184,7 @@
                 </p>
                 <!-- Insert GIF here -->
                 <div style="text-align:center; margin: 20px 0;">
-                    <img src="Figures/football_animation.gif" alt="Realistic football simulation" width="500">
+                    <img src="/Figures/football_animation.gif" alt="Realistic football simulation" width="500">
                     <p><em>Figure: Numerical simulation of the football using Euler method.</em></p>
                 </div>
                 <p>
@@ -238,7 +238,7 @@
     <!-- Add sidebar -->
     <div id="sidebar"></div>
     <script>
-    fetch('Navigations/sidebar.html')
+    fetch('/Navigations/sidebar.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('sidebar').innerHTML = data;
@@ -249,7 +249,7 @@
     <!-- Add rightlinks -->
     <div id="rightlinks"></div>
     <script>
-    fetch('Navigations/rightlinks.html')
+    fetch('/Navigations/rightlinks.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('rightlinks').innerHTML = data;
@@ -259,7 +259,7 @@
     <!-- Add rightpanel -->
     <div id="rightpanel"></div>
     <script>
-    fetch('Navigations/rightpanel.html')
+    fetch('/Navigations/rightpanel.html')
         .then(response => response.text())
         .then(data => {
         document.getElementById('rightpanel').innerHTML = data;
