@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three-Body Problem Simulation | Hng Jesse</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Three-Body Problem Simulation</h1>
+    <nav>by <strong>Hng Jesse</strong></nav>
+    <nav>
+      <a href="https://github.com/hngjesse/Three_body_problem" target="_blank">GitHub Repository</a> |
+      <a href="https://hngjesse.github.io/" target="_blank">Homepage</a>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        This project investigates the classical 
+        <a href="https://en.wikipedia.org/wiki/Three-body_problem" target="_blank" rel="noopener noreferrer">three-body problem</a>, 
+        which is a long-standing challenge in celestial mechanics that studies the motion of three massive bodies under their mutual 
+        <a href="https://en.wikipedia.org/wiki/Gravity" target="_blank" rel="noopener noreferrer">gravitational</a> attraction. 
+        Unlike the two-body problem, which has an analytical solution, the three-body problem is 
+        <a href="https://en.wikipedia.org/wiki/Nonlinear_system" target="_blank" rel="noopener noreferrer">nonlinear</a>
+        and <a href="https://en.wikipedia.org/wiki/Chaos_theory" target="_blank" rel="noopener noreferrer">chaotic</a>, 
+        meaning even small variations in initial conditions can lead to vastly different trajectories. This sensitivity 
+        makes it a rich and fascinating subject in both physics and computational science.
+      </p>
+      <p>
+        The primary goal of this project is to simulate the motion of three bodies using numerical techniques. 
+        The algorithm implemented here is the fifth-order 
+        <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods" target="_blank" rel="noopener noreferrer">Runge–Kutta method</a>
+        (RK4(5)), known for its balance between computational efficiency and numerical accuracy. The method was manually constructed 
+        using the <a href="https://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods" target="_blank" rel="noopener noreferrer">Butcher Tableau</a>, 
+        allowing for precise control over each stage of integration and providing a strong understanding of how adaptive step solvers 
+        approximate continuous dynamics.
+      </p>
+      <p>
+        The simulation begins with user-defined initial conditions including the positions, velocities, and masses of the 
+        three bodies, which can be freely modified within the MATLAB code. From there, the system evolves over time through 
+        the iterative application of 
+        <a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation" target="_blank" rel="noopener noreferrer">Newton’s law of universal gravitation</a>. 
+        The results are visualized as an animated orbit, showing the continuous interaction and orbital exchange between the three 
+        bodies. The animation highlights key physical phenomena such as orbital instability, center-of-mass motion, and the emergent 
+        patterns that occasionally resemble periodic orbits.
+      </p>
+      <p>
+        This project serves as an example of how complex 
+        <a href="https://en.wikipedia.org/wiki/Dynamical_system" target="_blank" rel="noopener noreferrer">dynamical systems</a>
+        can be explored using relatively simple numerical methods. It combines the core principles of computational physics, 
+        classical mechanics, and numerical analysis, providing valuable insight into the unpredictable yet structured behavior of 
+        chaotic systems. The approach developed here can also be extended to study 
+        <a href="https://en.wikipedia.org/wiki/N-body_problem" target="_blank" rel="noopener noreferrer">n-body systems</a>, 
+        orbital resonance phenomena, or energy exchange mechanisms in astrophysical contexts.
+      </p>
+      
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Numerical Method</h2>
+      <p>
+        The simulation employs the <strong>Runge–Kutta (RK4/5)</strong> integration scheme to numerically solve the coupled
+        differential equations of motion. This method achieves fifth-order accuracy while maintaining numerical stability
+        over long integration periods.
+      </p>
+      <p>
+        The <strong>Butcher Tableau</strong> defines the coefficients of the RK4(5) scheme used in the program. Different tableau variants
+        can be substituted for experimentation, though the implementation here prioritizes accuracy and stability.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Simulation Setup</h2>
+      <p>
+        The user defines the initial conditions (positions, velocities, and masses) in MATLAB before running the program.
+        By default, the gravitational constant <code>G</code> is normalized to <code>1</code> for simplicity.
+      </p>
+
+      <ul>
+        <li><strong>Integrator:</strong> Runge–Kutta 4(5)</li>
+        <li><strong>Time step:</strong> 1×10⁻⁴</li>
+        <li><strong>Number of iterations:</strong> 1,000,000</li>
+        <li><strong>Masses:</strong> M₁ = M₂ = M₃ = 1</li>
+      </ul>
+
+      <p>
+        The center of mass velocity is adjusted to zero, ensuring the total momentum of the system is conserved.
+        The trajectories are later visualized with MATLAB’s <code>animatedline</code> to show the dynamic orbital evolution.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Visualization and Output</h2>
+      <p>
+        The program records the evolution of the three bodies and their center of mass over time. 
+        An animation is generated showing the intricate and often chaotic dance of the bodies around their shared center of mass.
+      </p>
+      <div style="text-align:center; margin: 20px 0;">
+        <img src="/Figures/three_body_animation.gif" alt="Three-body problem simulation" width="800">
+        <p><em>Figure: Orbital trajectories generated by the RK4(5) simulation.</em></p>
+      </div>
+      <p>
+        The output positions can also be exported for further analysis in Python or MATLAB for energy and momentum conservation checks.
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Documentation</h2>
+      <p>
+        A detailed technical report explains the derivation of the governing equations, algorithmic structure,
+        and numerical accuracy validation. The PDF report can be accessed below:
+      </p>
+      <p style="text-align:center;">
+        📄 <a href="https://github.com/hngjesse/Three_body_simulation/blob/main/Three_body_problem.pdf" target="_blank">
+        Download Full Report (PDF)
+        </a>
+      </p>
+    </section>
+
+    <hr>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+        🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>© 2025 Hng Jesse — Published via GitHub Pages</p>
+  </footer>
+
+  <!-- Add sidebar -->
+  <div id="sidebar"></div>
+  <script>
+    fetch('/Navigations/sidebar.html')
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById('sidebar').innerHTML = d;
+        const s = document.createElement('script');
+        s.src = '/Navigations/sidebar.js';
+        s.onload = () => { if (typeof highlightSidebar === 'function') highlightSidebar(); };
+        document.body.appendChild(s);
+      });
+  </script>
+
+  <!-- Add rightlinks -->
+  <div id="rightlinks"></div>
+  <script>
+    fetch('/Navigations/rightlinks.html')
+      .then(r => r.text())
+      .then(d => { document.getElementById('rightlinks').innerHTML = d; });
+  </script>
+
+  <!-- Add rightpanel -->
+  <div id="rightpanel"></div>
+  <script>
+    fetch('/Navigations/rightpanel.html')
+      .then(r => r.text())
+      .then(d => { document.getElementById('rightpanel').innerHTML = d; });
+  </script>
+</body>
+</html>
