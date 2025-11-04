@@ -101,7 +101,7 @@ p {
     color: white;
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
+    padding-top: 0rem;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -128,12 +128,12 @@ p {
     transition: border 0.2s;
 }
 
-.sidebar a:hover {
+.sidebar > a:hover {
     background-color: #0f3044;
     border-left: 4px solid #00bcd4;
 }
 
-.sidebar a.active {
+.sidebar > a.active {
     background-color: #0f3044;
     border-left: 4px solid #00bcd4;
     font-weight: bold;
@@ -279,4 +279,21 @@ p {
         margin-top: 20px;
         padding: 0;
     }
+}
+
+
+/* Logo section */
+.logo {
+  text-align: center;
+  margin: 0;             /* remove all extra margin */
+  padding: 0;            /* remove any padding */
+  line-height: 0;        /* remove space from text container (like <h2>) */
+}
+
+.logo img {
+  width: 70px;           /* slightly smaller for balance */
+  height: 70px;
+  border: 0px solid #00bcd4;
+  display: block;        /* removes inline spacing below image */
+  margin: 0 auto;        /* center horizontally */
 }
