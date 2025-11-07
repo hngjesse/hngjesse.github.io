@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mqtt Logger Documentation | Hng Jesse</title>
     <!-- Add style -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/midbar.css">
+    <link rel="stylesheet" href="/styles/rightpanel.css">
     <!-- Add favicon -->
-    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" href="/Figures/favicon.png" type="image/png">
 </head>
 
 <body>
@@ -17,7 +20,7 @@
     <nav>by <strong>Hng Jesse</strong></nav>
     <nav>
       <a href="https://github.com/hngjesse/Mqtt_loggers" target="_blank">GitHub Repository</a> |
-      <a href="https://hngjesse.github.io/" target="_blank">Homepage</a>
+      <a href="/" target="_blank">Homepage</a>
     </nav>
     <hr>
   </header>
@@ -240,23 +243,26 @@ def water_cooled_pv(data_buffer, csv_file, header):
         const container = document.getElementById('sidebar');
         container.innerHTML = data;
 
-        // load and run the highlight script after injection
+        // load and run the sidebar script after injection
         const s = document.createElement('script');
-        s.src = '/Navigations/sidebar.js'; // path to the script
-        s.onload = () => { if (typeof highlightSidebar === 'function') highlightSidebar(); };
+        s.src = '/Navigations/sidebar.js'; // path to sidebar JS
+        s.onload = () => {
+          if (typeof highlightSidebar === 'function') highlightSidebar();
+          if (typeof initSidebarDropdowns === 'function') initSidebarDropdowns();
+        };
         document.body.appendChild(s);
       })
       .catch(err => console.error('Failed to load sidebar:', err));
     </script>
 
 
-    <!-- Add rightlinks -->
-    <div id="rightlinks"></div>
+    <!-- Add midbar -->
+    <div id="midbar"></div>
     <script>
-    fetch('/Navigations/rightlinks.html')
+    fetch('/Navigations/midbar.html')
         .then(response => response.text())
         .then(data => {
-        document.getElementById('rightlinks').innerHTML = data;
+        document.getElementById('midbar').innerHTML = data;
         });
     </script>
 

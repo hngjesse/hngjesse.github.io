@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Analysis</title>
+    <!-- Add style -->
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/midbar.css">
+    <link rel="stylesheet" href="/styles/rightpanel.css">
+    <!-- Add favicon -->
+    <link rel="icon" href="/Figures/favicon.png" type="image/png">
+</head>
+
+<body>
+    <header style="text-align: center;">
+        <h1>Functional Analysis</h1>
+        <nav>by <strong>Hng Jesse</strong></nav>
+        <nav>
+            <a href="https://github.com/hngjesse/Functional_analysis" target="_blank">GitHub Repository</a> |
+            <a href="/" target="_blank">Homepage</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section id="about">
+        <h2>About</h2>
+        <p>
+            I have always found the foundations of functional analysis, particularly the concept of the <em>completion of a metric space</em>, both fascinating and challenging. 
+            While I could grasp the ideas intuitively, I struggled to fully understand the formalism behind them. 
+            The main reason was that constructing the completion of a metric space depends on a prior concept: the <strong>completeness of the real numbers</strong>. 
+            In other words, I needed to revisit real analysis carefully before I could confidently approach functional analysis.
+        </p>
+
+        <p>
+            Another obstacle I faced was the variety of ways the real numbers can be constructed: 
+            through <em>Dedekind cuts</em>, <em>Cauchy sequences</em>, or <em>Eudoxus constructions</em>. 
+            Many textbooks mention these approaches without clarifying which one they adopt, which can be confusing. 
+            Eventually, I realized that constructing the real numbers explicitly is not always necessary, one can instead learn the 
+            <strong>axioms of the real numbers</strong>. This axiomatic approach is more intuitive and concise, while still allowing us to 
+            rigorously prove key properties such as Cauchy completeness.
+        </p>
+
+        <p>
+            These experiences motivated me to write this page to share a structured, accessible way of understanding these topics for those who might 
+            be facing similar challenges. There is one more point I wish I had understood earlier: mathematics is not built from formal proofs alone. 
+            The greatest mathematicians often began with <strong>geometric and visual intuition</strong> before formulating rigorous theorems. 
+            I used to focus solely on formal proofs, avoiding intuition for fear of being “less rigorous.” 
+            Over time, I realized that intuition is not the opposite of rigor, it is its foundation. 
+            Therefore, in these notes, I combine formal reasoning with geometric explanations, 
+            and I encourage you to embrace both perspectives while learning.
+        </p>
+        </section>
+        <hr>
+
+            <article>
+                <h3>Other GitHub Projects</h3>
+                <p>
+                    Full project available on
+                    <a href="https://github.com/hngjesse" target="_blank">
+                        my GitHub page
+                    </a>
+                </p>
+            </article>
+        </section>
+        <hr>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+                🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+            </p>
+        </section>
+    </main>
+    <hr>
+    <h3>References</h3>
+    <ol>
+        <li id="ref1">
+             B. A. Tay and Y. S. H’ng, Entanglement generation across exceptional points in a two-qubit 
+             open quantum system: The role of initial states, 
+            <a href="https://doi.org/10.1103/24cd-939t" target="_blank">Phys. Rev. E 112, 024133 (2025).</a>
+        </li>
+    </ol>
+
+
+
+    <footer>
+        <hr>
+        <p>© 2025 Hng Jesse — Built using GitHub Pages.</p>
+    </footer>
+
+    <!-- Add sidebar -->
+    <div id="sidebar"></div>
+
+    <script>
+    fetch('/Navigations/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+        const container = document.getElementById('sidebar');
+        container.innerHTML = data;
+
+        // load and run the sidebar script after injection
+        const s = document.createElement('script');
+        s.src = '/Navigations/sidebar.js'; // path to sidebar JS
+        s.onload = () => {
+            if (typeof highlightSidebar === 'function') highlightSidebar();
+            if (typeof initSidebarDropdowns === 'function') initSidebarDropdowns();
+        };
+        document.body.appendChild(s);
+        })
+        .catch(err => console.error('Failed to load sidebar:', err));
+    </script>
+
+    <!-- Add midbar -->
+    <div id="midbar"></div>
+    <script>
+    fetch('/Navigations/midbar.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('midbar').innerHTML = data;
+        });
+    </script>
+
+    <!-- Add rightpanel -->
+    <div id="rightpanel"></div>
+    <script>
+    fetch('/Navigations/rightpanel.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('rightpanel').innerHTML = data;
+        });
+    </script>
+
+
+</body>
+</html>
+

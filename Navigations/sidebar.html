@@ -1,16 +1,51 @@
 <!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
   <div class="logo">
-  <h2>
-    <a href="/">
-      <img src="/favicon.png" alt="Home Page">
-    </a>
-  </h2>
+    <h2>
+      <a href="/">
+        <img src="/Figures/favicon.png" alt="Home Page">
+      </a>
+    </h2>
   </div>
-  <a href="/Mqtt_loggers/">MQTT loggers</a>
-  <a href="/Modbus_loggers/">Modbus loggers</a>
-  <a href="/Three_body_simulation/">Three body simulation</a>
-  <a href="/Systemd/">Systemd Introduction</a>
-  <a href="/Github_cheat_sheet/">GitHub Introduction & Cheat Sheet</a>
-</nav>
 
+  <!-- New expandable section -->
+  <div class="dropdown">
+    <button class="dropdown-btn">Data loggers</button>
+    <div class="dropdown-content">
+      <!-- Example of sub-sections -->
+      <a href="/Mqtt_loggers/">MQTT loggers</a>
+      <a href="/Modbus_loggers/">Modbus loggers</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-btn">Computational Physics</button>
+    <div class="dropdown-content">
+      <!-- Example of sub-sections -->
+      <a href="/Three_body_simulation/">Three body simulation</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-btn">Linux </button>
+    <div class="dropdown-content">
+      <!-- Example of sub-sections -->
+        <a href="/Systemd/">Systemd Introduction</a>
+        <a href="/Github_cheat_sheet/">GitHub Introduction & Cheat Sheet</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-btn">Pure Mathematics</button>
+    <div class="dropdown-content">
+      <!-- Example of sub-sections -->
+        <a href="/Functional_analysis/">Functional analysis</a>
+    </div>
+  </div>
+  
+
+  
+
+
+
+</nav>

@@ -1,0 +1,53 @@
+/* === Math & Theorem Formatting === */
+.definition, .theorem, .proposition {
+  border-left: 0px solid #00bcd4;
+  background-color: #141a24;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.def-title, .theorem-title, .prop-title {
+  font-weight: bold;
+  color: #00bcd4;
+  margin-bottom: 8px;
+}
+
+.definition p, .theorem p, .proposition p {
+  margin: 8px 0;
+}
+
+ol {
+  margin-left: 20px;
+}
+
+
+/* === Proof Environment === */
+.proof {
+  border-left: 0px solid #888;
+  background-color: #141a24;
+  padding: 12px 18px;
+  margin: 15px 0 30px 0;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-style: normal;
+}
+
+.proof-title {
+  font-weight: bold;
+  color: #00bcd4; /* amber tone */
+  margin-bottom: 8px;
+}
+
+.proof p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.qed {
+  float: right;
+  font-weight: bold;
+  color: #00bcd4;
+  margin-left: 8px;
+}

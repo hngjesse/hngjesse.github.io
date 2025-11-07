@@ -1,0 +1,54 @@
+/* --- Top Center Bar (matches sidebar style) --- */
+.midbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    width: 800px;
+    background-color: #203d50; /* same as sidebar */
+    color: white;
+    padding: 5px 24px;
+
+    z-index: 999;
+    transition: background-color 0.3s ease;
+    border-radius: 0 0 8px 8px; /* slightly rounded bottom corners */
+
+    border-right: 0px solid #006875;
+    border-bottom: 0px solid #006875;
+    border-left: 0px solid #006875;
+}
+
+.midbar a {
+    color: white;
+    text-decoration: none;
+    padding: 2px 16px;
+    white-space: nowrap;
+}
+
+.midbar a:hover {
+    background-color: #0f3044;      /* same hover bg as sidebar */
+    border-top: 3px solid #00bcd4; /* same accent color */
+}
+
+/* --- Make it simpler on mobile --- */
+@media (max-width: 768px) {
+    .midbar {
+        position: static;
+        flex-wrap: wrap;
+        gap: 8px;
+        background: none;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 8px;
+    }
+    .midbar a {
+        padding: 6px 10px;
+    }
+}

@@ -1,0 +1,158 @@
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 240px;
+    background-color: #203d50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 999;
+
+    border-right: 0px solid #006875;
+    /* NEW: allow scrolling when dropdown content exceeds view height */
+    overflow-y: auto;
+    scrollbar-width: 1 px; /* for Firefox */
+    scrollbar-color: #797979 #203d50; /* accent + track color */
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: block;
+    border-left: 4px solid transparent;
+    transition: border 0.2s;
+}
+
+.sidebar a.active {
+    background-color: #0f3044;         /* same as hover color */
+    border-left: 0px solid #00bcd4;    /* same as hover accent */
+    color: #ffffff;                    /* ensure text stays readable */
+}
+
+.sidebar > a:hover {
+    background-color: #0f3044;
+    border-left: 4px solid #00bcd4;
+}
+
+.sidebar > a.active {
+    background-color: #0f3044;
+    border-left: 4px solid #00bcd4;
+    font-weight: bold;
+}
+
+
+
+/* --- Toggle button (visible only on mobile) --- */
+.toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 1.5rem;
+    background: #203d50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+/* --- Responsive behaviour --- */
+@media (max-width: 1300px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .toggle-btn {
+        display: block;
+    }
+    main {
+        margin-left: 0;
+        padding-top: 3.5rem; /* prevent overlap with toggle button */
+    }
+}
+
+
+
+/* --- Collapsible Dropdowns --- */
+
+
+.dropdown-btn, .sub-dropdown-btn {
+  background: none;
+  color: white;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  display: block;
+  border-left: 4px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  padding-right: 36px; /* make space for the arrow */
+}
+
+
+.dropdown-btn:hover, .sub-dropdown-btn:hover {
+  background-color: #0f3044;
+  border-left: 4px solid #00bcd4;
+}
+
+.dropdown-content, .sub-dropdown-content {
+  display: none;
+  flex-direction: column;
+  padding-left: 5px;
+  background-color: #162a38;
+}
+
+.dropdown-content a, .sub-dropdown-content a {
+  font-size: 0.9rem;
+  padding: 8px 24px;
+  color: #ddd;
+}
+
+.dropdown-content a:hover, .sub-dropdown-content a:hover {
+  background-color: #0f3044;
+}
+
+
+/* Default (closed) state — show right arrow ▸ */
+
+.dropdown-btn::after,
+.sub-dropdown-btn::after {
+  content: "▸";
+  position: absolute;
+  right: 8px;  /* distance from right edge */
+  top: 50%;    /* vertical center */
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
+}
+/* Active dropdown (opened) */
+.dropdown.open > .dropdown-content,
+.sub-dropdown.open > .sub-dropdown-content {
+  display: flex;
+}
+
+.dropdown.open > .dropdown-btn::after,
+.sub-dropdown.open > .sub-dropdown-btn::after {
+  transform: translateY(-50%) rotate(90deg);
+}
