@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Analysis</title>
+    <!-- Add style -->
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/midbar.css">
+    <link rel="stylesheet" href="/styles/rightpanel.css">
+    <!-- Add favicon -->
+    <link rel="icon" href="/Figures/favicon.png" type="image/png">
+</head>
+
+<body>
+    <header style="text-align: center;">
+        <h1>Impacts of Exceptional Points and Phase Angle on the Entanglement Dynamics of Two-Qubit Open Quantum System</h1>
+        <nav>by <strong>Hng Jesse</strong></nav>
+        <nav>
+            <a href="https://github.com/hngjesse/My_MPhil_thesis" target="_blank">GitHub Repository</a> |
+            <a href="/" target="_blank">Homepage</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section id="about">
+        <h2>About</h2>
+        <p>
+            This study investigates the dynamics of two-qubit systems in open quantum environments, with a focus on the influence of exceptional points (EPs) and phase angle on entanglement dynamics. Two-qubit systems are pivotal in quantum information science, as they are the simplest system that reveals quantum entanglement, a crucial resource for quantum computing and communication. The research explores the effects of coupling, spontaneous emission, and environment on two-qubit states, specifically the $X$-states, within the framework of the Gorini–Kossakowski–Sudarshan–Lindblad (GKSL) or Lindblad master equation.
+        </p>
+
+        <p>
+            EPs are unique to non-Hermitian systems. They affect the system’s dynamics significantly when the system approaches EP. Analytical and numerical analyses reveal that third-order EPs occur at specific parameters for two-qubit system, leading to critical changes in eigenvalues and eigenvectors of the Liouvillian superoperator. The study demonstrates that EPs can enhance or suppress entanglement. The concurrence, a quantitative measure of entanglement, peaks around the EPs under certain initial conditions.
+        </p>
+
+        <p>
+            Furthermore, the impact of phase angle, $\theta$, that parameterizes the relative phase of maximally entangled states is analyzed. For initial states labeled as $\rho_\Psi(\theta,p)$ in this thesis, the phase angle significantly influences concurrence evolution, enabling tunability of entanglement dynamics. In contrast, for other class of initial states labeled as $\rho_\Phi(\theta,p)$, concurrence exhibits phase invariance, ensuring stability across the variations in $\theta$. Besides this, the analysis shows that the maximum concurrence occurs around EP for some states, the phase angle can also be tuned to increase the concurrence for some initial states. These findings highlight the importance of both EPs and phase angle in optimizing entanglement generation and control.
+        </p>
+        <p>
+            This research offers valuable insights into the interplay between non-Hermitian physics and quantum entanglement, paving the way for advancements in quantum technologies. The outcomes provide possible practical implications in the field of quantum computation.
+        </p>
+        </section>
+        <hr>
+
+        <section id="research aim and contributions">
+        <h2>Research aim and contributions</h2>
+        <p>
+            The primary aim of this thesis is to explore how EPs shape the behavior of open quantum systems, particularly in two-qubit configurations. One of the key contributions is an in-depth exploration of entanglement behavior near to or away from EPs. Additionally, exploring the impact of phase angle on entanglement behavior will help bridge the gap in existing research on this topic. The research will also provide a method for tuning system parameters to achieve desired outcomes. The last contribution will be expanding knowledge on EPs in two-qubit systems and their technological applications.
+        </p>
+        </section>
+        <hr>
+        <section id="thesis organization">
+        <h2>Thesis organization</h2>
+        <p>
+            The thesis is structured in the following way. In chapter 2, we introduce the basic knowledge such as quantum state of qubit and density matrix. we also introduce the dynamic of one-qubit in open quantum system. Furthermore, we utilize the eigensystem analysis to understand the system dynamics. In chapter 3, we introduce the idea of EP. We also focus on mathematical formulations of EP and system dynamics. 
+        </p>
+        <p>
+            In chapter 4, we introduce the dynamic of two-qubit system and analyze the eigensystem and its EPs. We also introduce the concurrence and the initial state used in the research. In chapter 5, we present numerical findings and analyzes entanglement behavior. In chapter 6, we summarize findings, highlights contributions, and suggests future research directions.
+        </p>
+        </section>
+
+        <hr>
+        <article>
+            <h3>Other GitHub Projects</h3>
+            <p>
+                Full project available on
+                <a href="https://github.com/hngjesse" target="_blank">
+                    my GitHub page
+                </a>
+            </p>
+        </article>
+        </section>
+        <hr>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                📧 Email: <a href="mailto:hngjesse@gmail.com">hngjesse@gmail.com</a><br>
+                🔗 GitHub: <a href="https://github.com/hngjesse" target="_blank">hngjesse</a>
+            </p>
+        </section>
+    </main>
+    <hr>
+    <h3>References</h3>
+    <ol>
+        <li id="ref1">
+             B. A. Tay and Y. S. H’ng, Entanglement generation across exceptional points in a two-qubit 
+             open quantum system: The role of initial states, 
+            <a href="https://doi.org/10.1103/24cd-939t" target="_blank">Phys. Rev. E 112, 024133 (2025).</a>
+        </li>
+    </ol>
+
+
+
+    <footer>
+        <hr>
+        <p>© 2025 Hng Jesse — Built using GitHub Pages.</p>
+    </footer>
+
+    <!-- Add sidebar -->
+    <div id="sidebar"></div>
+
+    <script>
+    fetch('/Navigations/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+        const container = document.getElementById('sidebar');
+        container.innerHTML = data;
+
+        // load and run the sidebar script after injection
+        const s = document.createElement('script');
+        s.src = '/Navigations/sidebar.js'; // path to sidebar JS
+        s.onload = () => {
+            if (typeof highlightSidebar === 'function') highlightSidebar();
+            if (typeof initSidebarDropdowns === 'function') initSidebarDropdowns();
+        };
+        document.body.appendChild(s);
+        })
+        .catch(err => console.error('Failed to load sidebar:', err));
+    </script>
+
+    <!-- Add midbar -->
+    <div id="midbar"></div>
+    <script>
+    fetch('/Navigations/midbar.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('midbar').innerHTML = data;
+        });
+    </script>
+
+    <!-- Add rightpanel -->
+    <div id="rightpanel"></div>
+    <script>
+    fetch('/Navigations/rightpanel.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('rightpanel').innerHTML = data;
+        });
+    </script>
+
+
+</body>
+</html>
+
