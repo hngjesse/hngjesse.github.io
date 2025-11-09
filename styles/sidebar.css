@@ -105,10 +105,12 @@
   font-size: 1rem;
   font-family: inherit;
   display: block;
-  border-left: 4px solid transparent;
+  border-right: 0px solid #00bcd4;
+  border-top: 0px solid #00bcd4;
   transition: all 0.2s;
   position: relative;
   padding-right: 36px; /* make space for the arrow */
+  margin-top: 10px;
 }
 
 
