@@ -13,43 +13,43 @@
   <!-- Subpages -->
   <url>
     <loc>https://hngjesse.github.io/Modbus_loggers/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hngjesse.github.io/Mqtt_loggers/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://hngjesse.github.io/Systemd/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-    <url>
+  <url>
     <loc>https://hngjesse.github.io/Github_cheat_sheet/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-    <url>
+  <url>
     <loc>https://hngjesse.github.io/Three_body_simulation/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
-     <url>
+  <url>
     <loc>https://hngjesse.github.io/My_MPhil_thesis/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://hngjesse.github.io/Functional_analysis/</loc>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
