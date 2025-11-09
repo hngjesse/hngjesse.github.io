@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hngjesse.github.io/sitemap.xml
+Sitemap: https://hngjesse.github.io/sitemap_index.xml
